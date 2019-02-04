@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tp3/util/strings.dart';
 import 'package:tp3/app/train/train.dart';
-import 'package:tp3/app/hiragana/hiragana.dart';
+import 'package:tp3/app/learn/learn.dart';
 
 
 class Home extends StatefulWidget {
@@ -20,7 +20,7 @@ class HomeState extends State<Home> {
         title: Text(strings.title),
       ),
       body: Center(
-        child: Train(),
+        child: _selectedIndex == 0 ? Learn() : Train(),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
