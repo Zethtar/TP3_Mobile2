@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tp3/app/learn/learn.dart';
 import 'package:tp3/util/strings.dart';
 
 class Home extends StatelessWidget {
@@ -10,6 +11,7 @@ class Home extends StatelessWidget {
         appBar: AppBar(
           title: Text(strings.title),
         ),
-        body: Center(child: Text("Hello World")));
+        body: Learn()
+    );
   }
 }
