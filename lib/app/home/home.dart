@@ -10,8 +10,6 @@ class Home extends StatefulWidget {
 
 class HomeState extends State<Home> {
   int _selectedIndex = 0;
-  final _learn = Learn();
-  final _train = Train();
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +20,15 @@ class HomeState extends State<Home> {
         title: Text(strings.title),
       ),
       body: Center(
-        child: _selectedIndex == 0 ? _learn : _train,
+        child: IndexedStack(children: <Widget>[
+          Learn(),
+          Train()
+        ], index: _selectedIndex,),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.class_), title: Text(Strings.of(context).learn)),
-          BottomNavigationBarItem(icon: Icon(Icons.create), title: Text(Strings.of(context).train)),
+          BottomNavigationBarItem(icon: Icon(Icons.class_), title: Text(strings.learn)),
+          BottomNavigationBarItem(icon: Icon(Icons.create), title: Text(strings.train)),
         ],
         currentIndex: _selectedIndex,
         fixedColor: Colors.red,
