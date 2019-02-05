@@ -10,6 +10,8 @@ class Home extends StatefulWidget {
 
 class HomeState extends State<Home> {
   int _selectedIndex = 0;
+  final _learn = Learn();
+  final _train = Train();
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class HomeState extends State<Home> {
         title: Text(strings.title),
       ),
       body: Center(
-        child: _selectedIndex == 0 ? Learn() : Train(),
+        child: _selectedIndex == 0 ? _learn : _train,
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
