@@ -7,14 +7,14 @@ class Train extends StatefulWidget {
 }
 
 class TrainState extends State<Train> {
+  static const int CHOICE_COUNT = 3;
   var _correctIndex = 0;
   var _isButtonDisabled = [false, false, false];
-  var _rng = Random();
   var _keysList = Hiraganas.keys.toList();
 
   TrainState() {
     _keysList.shuffle();
-    _correctIndex = _rng.nextInt(3);
+    _correctIndex = Random().nextInt(CHOICE_COUNT);
   }
 
   @override
@@ -32,7 +32,7 @@ class TrainState extends State<Train> {
     return ListView.builder(
       shrinkWrap: true,
       padding: EdgeInsets.all(8.0),
-      itemCount: 3,
+      itemCount: CHOICE_COUNT,
       itemExtent: 20.0,
       itemBuilder: (BuildContext context, int index) {
         Function onPressed = index == _correctIndex ? _updateHiragana : () => _disableButton(index);
@@ -52,7 +52,7 @@ class TrainState extends State<Train> {
     setState(() {
       _keysList.shuffle();
       _isButtonDisabled = [false, false, false];
-      _correctIndex = _rng.nextInt(3);
+      _correctIndex = Random().nextInt(CHOICE_COUNT);
     });
   }
 }
