@@ -9,14 +9,18 @@ class Train extends StatefulWidget {
 class TrainState extends State<Train> {
   static const int CHOICE_COUNT = 3;
   var _correctIndex = 0;
+  //BEN_CORRECTION : Tableau hardcodé compte, surtout sachant qu'il y a une constante plus haut
+  //                 qui permet de déterminer la taille de ce tableau.
   var _isButtonDisabled = [false, false, false];
   var _keysList = Hiraganas.keys.toList();
 
   TrainState() {
+    //BEN_CORRECTION : Duplication de code. Voir fonction "_updateHiragana".
     _keysList.shuffle();
     _correctIndex = Random().nextInt(CHOICE_COUNT);
   }
 
+  //BEN_CORRECTION : Indentation de la méthode "build" rend difficile la lecture de la structure.
   @override
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
